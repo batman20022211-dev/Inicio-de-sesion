@@ -18,8 +18,10 @@
                 <input type="text" name="usuario" id="usuario" placeholder="Usuario" required>
             </label>
             <label class="campo">
-                <img class="icono-img" src="{{ url_for('static', filename='i/candado.png') }}" alt="Contraseña">
-                <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
+            <img class="icono-img" src="{{ url_for('static', filename='i/candado.png') }}" alt="Contraseña">
+
+            <span class="mascara-gatos" id="mascara-gatos" data-gato="{{ url_for('static', filename='i/gato.png') }}" aria-hidden="true"></span>
+            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
             </label>
             <button type="submit" class="btn-e">Entrar</button>
         </form>

@@ -131,3 +131,54 @@ if (mensaje) {
         mostrarMensaje(tipo === "error" ? "¡Ups!" : "¡Listo!", mensaje.dataset.texto, tipo);
     }
 }
+function dibujarGatos(campo, mascara) {
+    const total = campo.value.length;
+
+    if (mascara.childElementCount !== total) {
+        mascara.replaceChildren(
+            ...Array.from({ length: total }, () => {
+                const celda = document.createElement("span");
+                celda.className = "gato-celda";
+
+                const ponerEmoji = () => {
+                    celda.textContent = "🐱";
+                };
+
+                if (mascara.dataset.gato) {
+                    const img = document.createElement("img");
+                    img.src = mascara.dataset.gato;
+                    img.alt = "";
+                    img.onerror = () => {
+                        img.remove();
+                        ponerEmoji();
+                    };
+                    celda.appendChild(img);
+                } else {
+                    ponerEmoji();
+                }
+
+                return celda;
+            })
+        );
+    }
+
+    mascara.scrollLeft = campo.scrollLeft;
+}
+
+function activarGatitos(idCampo, idMascara) {
+    const campo = document.getElementById(idCampo);
+    const mascara = document.getElementById(idMascara);
+    if (!campo || !mascara) return;
+
+    const actualizar = () => dibujarGatos(campo, mascara);
+
+    ["input", "keydown", "keyup", "mouseup", "focus", "select"].forEach((evento) =>
+        campo.addEventListener(evento, actualizar)
+    );
+
+    actualizar();
+}
+
+activarGatitos("contrasena", "mascara-gatos");
+activarGatitos("reg-contrasena", "gatos-registro");
+activarGatitos("reg-confirmar", "gatos-confirmar");

@@ -20,12 +20,18 @@
 
             <label class="campo">
                 <img class="icono-img" src="{{ url_for('static', filename='i/candado.png') }}" alt="Contraseña">
+
+                <span class="mascara-gatos" id="gatos-registro" data-gato="{{ url_for('static', filename='i/gato.png') }}"></span>
+
                 <input type="password" name="contrasena" id="reg-contrasena" placeholder="Contraseña" required>
             </label>
             <small class="error" id="error-reg-contrasena"></small>
 
             <label class="campo">
                 <img class="icono-img" src="{{ url_for('static', filename='i/candado.png') }}" alt="Confirmar">
+
+                <span class="mascara-gatos" id="gatos-confirmar" data-gato="{{ url_for('static', filename='i/gato.png') }}"></span>
+
                 <input type="password" name="confirmar" id="reg-confirmar" placeholder="Confirmar contraseña" required>
             </label>
             <small class="error" id="error-reg-confirmar"></small>

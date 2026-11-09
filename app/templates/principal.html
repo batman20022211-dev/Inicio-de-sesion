@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google" content="notranslate">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+        <title>Principal</title>
+    </head>
+    <body>
+        <main class="portada1">
+    <div class="usuario"><img class="iconosaludo" src="{{ url_for('static', filename='i/gato.png') }}"> Hola, {{ session.usuario }}</div>
+    <section class="portada-texto">
+        <img class="portada-saludo" src="{{ url_for('static', filename='i/9.png') }}">
+    </section>
+    </body>
+</html>
